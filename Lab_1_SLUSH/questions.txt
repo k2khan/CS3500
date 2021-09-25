@@ -1,0 +1,13 @@
+1./ Hamad Khan, Julia Pratt, Bridget O'Reilly
+
+2./ When in a child process, pressing ^C causes "$" to be printed twice. For example, if you're running cat and you exit out by pressing "^C", "$" will be printed out twice. 
+When using "echo ls | SLUSH", the output of the command is produced first, and then two "$" characters are printed on a newline. Example:
+
+khann@DESKTOP-K1UU0BU:~/classes/operating-systems/labs/group2/SLUSH$ echo ls | SLUSH
+OLD  SLUSH  SLUSH.c  fileA  fileB  fileC
+$ $ khan@DESKTOP-K1UU0BU:~/classes/operating-systems/labs/group2/SLUSH$
+
+
+
+
+3./

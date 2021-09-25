@@ -1,0 +1,8 @@
+﻿1. Julia Pratt, Hamad Khan, Bridget O’Reilly
+2. As we saw in class, this algorithm works well for data with multiple repeating patterns of a certain length. If the data were more varied or had longer, more complex patterns than what we would expect, the algorithm would be far less efficient and likely would not compress much if at all. 
+3. I predict that the file with strong bias will compress the best because it is more likely to contain those long patterns of numbers that our algorithm is looking for. 
+1mil_random : 0.625
+1mil_weak_bias : 1.174
+1mil_strong_bias : 2.444
+4. In real-time, test4 took 8 minutes and 2.761 seconds to compress. 
+5. With a compression length of 10, test4 took 23.634 seconds to compress. I would hypothesize that this difference is due to the fact that the program no longer has to look at each individual character of the file and instead is looking to match the first pattern.
