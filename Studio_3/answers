@@ -1,0 +1,56 @@
+1./ Hamad Khan
+2./ 
+3./ 
+4./
+for (int i = 0; i < 11; i++) {
+  printf("%c\n", messagePtr[i]);
+ }
+5./ I assume the pointer points to the first character of the string literal at first, so dereferencing the pointer should give us the first character, "H".
+6./ "H" was printed.
+7./ 
+8./
+int inc = 0;
+while (messagePtr[inc] != NULL) {
+  printf("%c\n", messagePtr[inc]);
+  inc++;
+}
+
+9./
+int inc = 0;
+while (messagePtr[inc] != NULL) {
+  printf("%c\n", messagePtr[inc]);
+  inc++;
+}
+
+10./
+void printReverse(char *string) {
+  int inc = 0;
+  while (string[inc] != NULL) {
+    inc++;
+  }
+  //Reverse
+  for(int i = 0; inc > i; inc--) {
+    printf("%c\n", string[inc]);
+  }
+}
+
+11./
+char* reverseString(char* input) {
+  //Count the amount of characters in input string
+  int inc = 0;
+  char* output = (char*)malloc(inc + 1);
+
+  while (input[inc] != NULL) {
+    inc++;
+  }
+
+  int counter = 0;
+  //Reverse
+  for(int i = 0; inc > i; inc--) {
+    output[counter] = input[inc - 1];
+    counter++;
+  }
+  output[counter+1] = '\0';
+  return output;
+}
+

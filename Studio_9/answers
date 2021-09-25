@@ -1,0 +1,44 @@
+1./ Hamad Khan
+
+2./ The return type is void*, and the argument type is also void* for the entry point.
+
+3./
+
+4./
+k2khan@k:~/classes/operating-systems/hamadkhan/Studio_9$ ./thread
+You are now at the thread entry point
+
+5./
+struct data_pipe {
+  int arg1;
+  int ret;
+  char arg2[15];
+};
+
+6./
+k2khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_9$ ./thread
+Thread arg1: 1
+Thread arg2: Hello, World!
+Thread arg2: 2
+
+7./
+
+8./
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_9$ ./thread
+Thread arg2: This is thread 0
+Thread arg1: 1024
+Thread ret: 2048
+Thread arg2: This is thread 1
+Thread arg1: 1024
+Thread ret: 2048
+Thread arg2: This is thread 2
+Thread arg1: 1024
+Thread ret: 2048
+Thread arg2: This is thread 3
+Thread arg1: 1024
+Thread ret: 2048
+Thread arg2: This is thread 4
+Thread arg1: 1024
+Thread ret: 2048
+
+9./ For me, the output ordering stayed as expected. This was likely due to the extremely minimal data we are dealing with. Since we have no control over which thread gets executed, it is very likely that the output ordering would differ, given that we have more data that we're dealing with.

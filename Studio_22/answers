@@ -1,0 +1,21 @@
+1./ Hamad Khan
+
+2./ If we have eight bits, we need one more bit for the parity bit. So, we will have 9 bits that will be sent in total.
+
+3./ 
+000011110
+111011001
+111111110
+000000000
+
+4./ Yes, the parity bit catches all errors when a single bit is flipped.
+
+5./ No, the parity bit doesn't catch any errors when more than one bit is flipped.
+
+6./ The parity bit method is suitable for single bit detection only.
+
+7./ 38 bytes of overhead.
+
+8./ The overall transmisison would be 138 bytes. 38/138 =  27.5% of overhead.
+
+9./ The overall transmission would be 153 bytes, with 2.5% overhead.

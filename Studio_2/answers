@@ -1,0 +1,12 @@
+1./ Hamad Khan
+2./ Any line I write is repeated back (printed) to my shell.
+3./ All of the text within mars.txt is displayed on the shell.
+4./ Anything I typed after "cat > new.txt" was placed into new.txt.
+5./ 
+6./ #include<unistd.h>
+7./ 
+8./ The return value type is an integer value. This is because you are returning the number of bytes that are read. Zero indicates end of file.
+9./ Yes, my program's behavior seems to match the behavior of linux's cat program. Both redirecting output and input seem to work the same as cat.
+10./ I assume changing the bufferSize will change the amount of bytes the program read() and write() at a time. Changing my bufferSize from 1 to 2048 did not affect the correctness of my program.
+11./ Small buffers will result in the program doing more operations, since you are reading less information at a time. Buffers that are too big may unnecessarily waste space, since you may not use all of your buffer.
+

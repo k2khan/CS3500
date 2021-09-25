@@ -1,0 +1,30 @@
+1./ Hamad Khan
+
+2./ The first 3 bytes (first 24 bit) remain constant. The last byte (8 bits) vary.
+
+3./ Subnet: 152.221.54.0/12 to 152.221.54.255/12
+Network address: 1001 1000 1101, Host identifier: 1101 0011 0110 1111 1111 to 1101 0011 0110 0000 0000
+
+4./ Network address: 1001 1000 0100 1110 0110, Host identifier: 0101 0010 0011
+
+5./ SLU's CIDR: 165.134.0.0/16
+
+6./ SLU's host identifier has 16 bits. SLU has access to 2^16 ip addresses.
+
+7./ Subnet: 38.191.208.0/20 = Network address: 0010 0110 1011 1111 1101, Host address: 0000 0000 0000
+A./ 0010 0110 1011 1111 1111 0000 0001 0110, doesn't belong
+B./ 0010 0110 1011 1111 1101 1110 0010 1111, belongs
+C./ 0010 0110 1011 0101 1101 0010 1000 0000, belongs
+D./ 0010 0110 1011 1111 1100 1111 1111 1111, doesn't belong
+
+8./ IP address: 1100 1000 0110 0100 0011 0010 0001 1001
+A./ 1100 1000 0000 0000 0000 0000 | 0000 0000, doesn't match
+B./ 1100 1000 0110 0000 0000 | 0000 0000 0000, doesn't match
+C./ 1100 1000 0100 0000 | 0000 0000 0000 0000, doesn't match
+D./ 1100 1000 0110 01 | 00 0011 0000 0000 0000, matches
+
+9./ IP address: 0001 0100 0010 1000 0101 0000 1010 0000
+A./ 0001 0100 0010 1000 | 0000 0000 0000 0000
+B./ 0001 0100 | 0010 1000 0101 0000 0000 0000, has closer match. So 20.40.80.0/24.
+
+10./

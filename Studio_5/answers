@@ -1,0 +1,32 @@
+1./ Hamad Khan
+
+2./ The process id is: 1578
+The process id is: 1579
+The process id is: 1580
+
+3./ From running the program once, I now get two outputs:
+The process id is: 1600
+The process id is: 1601
+
+4./ If fork() is executed successfully, the PID of the child process is returned in the parent, and 0 is returned in the child. If fork is executed unsuccessfully, -1 is returned in the parent, and no child process is created.
+
+5./ The parent's process id is: 1631
+The child's process id is: 1632
+
+6./ The program runs as expected. The parent PID is printed as output first. Then, there is a 3 second delay, after which the child PID is printed.
+
+7./ The program now prints out the PIDs at the same time. This is because the program is now waiting to get the child pid (which is delayed due to putting sleep(3)), and then prints both the parent and child pid when the child pid is obtained.
+
+8./ 
+total 28
+-rw-r--r-- 1 khan khan   891 Feb 10 17:48 answers
+-rwxr-xr-x 1 khan khan 16872 Feb 10 17:43 fork
+-rw-r--r-- 1 khan khan   410 Feb 10 17:54 fork.c
+
+9./
+The child's processor id is: 1972
+total 28
+-rw-r--r-- 1 khan khan  1052 Feb 10 18:03 answers
+-rwxr-xr-x 1 khan khan 16968 Feb 10 18:07 fork
+-rw-r--r-- 1 khan khan   524 Feb 10 18:07 fork.c
+The parent's processor id is: 1971

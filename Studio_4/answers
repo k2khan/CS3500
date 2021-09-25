@@ -1,0 +1,60 @@
+1./ Hamad Khan
+
+2./ 
+#include<unistd.h>
+#include<sys/types.h>
+#include<fcntl.h>
+#include<stdlib.h>
+#include<stdio.h>
+
+#define bufferSize 258
+
+int main(int argc, char* argv[]) {
+  char* inputFile = argv[1];
+  char* buffer[bufferSize];
+  
+  //Open file descriptor
+  int inFD = open(inputFile, O_RDONLY);
+  
+  while (1) {
+    //Read the file descriptor
+    ssize_t retVal = read(inFD, buffer, bufferSize);
+
+     if (retVal == -1) {
+      break;
+    }
+   
+    //Write to standard output
+    retVal = write(STDOUT_FILENO, buffer, retVal);
+    }
+
+  return 0;
+}
+
+3./ Currently, the program runs, but nothing happens (there is no standard output) since the file I am trying to open doesn't exist.
+
+4./ Again, the program runs, but there is no standard output. The difference is that I am actually feeding an input file to the program this time.
+
+5./ -1 is returned at the event of an error.
+
+6./ 
+if (inFD == -1) {
+  exit(-1);
+}
+
+7./  perror("Could not open the file!");
+
+8./ 
+
+9./ When I try to give an argument to my program for a file that doesnt exist, I get the error message "Could not open file!: No such file or directory"
+
+10./ When I try to give the argument for perm.txt, I get the error message "Could not open file!: Permission denied"
+
+11./ For the return value in case of an error,
+Open() returns -1, errno is set
+close() returns -1, errno is set
+read() returns -1, errno is set
+write() returns -1, errno is set
+printf() returns a negative value, errno is NOT set
+
+12./ Error checking in this manner simplifies software development because it can help point the programmer to where the error is occuring, and help users identify how to use a program correctly. 

@@ -1,0 +1,84 @@
+1./ Hamad Khan
+
+2./ 
+pthread_mutex_t = m
+pthread_mutex_init(m, NULL)
+
+3./
+
+4./ The result that we should expect once we synchronize our access is that the global variable should be zero after out threads are joined. I expect our program to naturally take longer after using mutex. This is because the mutex has to make sure whether or not 
+
+5./ After implementing the lock and unlock mutex conditions, we were able to get the expected output of 0. 0 Was our output even after multiple trials.
+
+6./ In the racey program, we get:
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_10$ time ./race
+Value of race is: 4471393
+
+real    0m0.105s
+user    0m0.202s
+sys     0m0.000s
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_10$ time ./race
+Value of race is: -11241435
+
+real    0m0.075s
+user    0m0.120s
+sys     0m0.000s
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_10$ time ./race
+Value of race is: 2539895
+
+real    0m0.114s
+user    0m0.224s
+sys     0m0.000s
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_10$
+
+So the average real time is: 0.098 seconds
+
+7./ In the mutex program we got:
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_11$ time ./race
+Value of race is: 0
+
+real    0m0.231s
+user    0m0.271s
+sys     0m0.180s
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_11$ time ./race
+Value of race is: 0
+
+real    0m0.182s
+user    0m0.248s
+sys     0m0.099s
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_11$ time ./race
+Value of race is: 0
+
+real    0m0.176s
+user    0m0.209s
+sys     0m0.130s
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_11$
+
+So the average real time is: 0.193 seconds
+
+8./ In the mutex program where lock/unlock are executed once per thread:
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_11$ time ./race
+Value of race is: 0
+
+real    0m0.009s
+user    0m0.003s
+sys     0m0.000s
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_11$ time ./race
+Value of race is: 0
+
+real    0m0.008s
+user    0m0.002s
+sys     0m0.000s
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_11$ time ./race
+Value of race is: 0
+
+real    0m0.008s
+user    0m0.004s
+sys     0m0.000s
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_11$
+
+So the average time is 0.008 seconds.
+
+9./ This is actually the opposite of the result that I predicted. I think it may have to do with the fact that since we are using two threads, they no longer have to race to access/change data. We define what is accessible and what is not, so there may be less work in doing that.
+
+10./ The per-iteration strategy would be more appropriate if the shared variable is within only the for loop. It may be necessary to lock/unlock on a per thread basis if there are shared variables outside of a for loop.

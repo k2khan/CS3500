@@ -1,0 +1,49 @@
+1./ Hamad Khan
+
+2./ 
+void adder(int var) {
+  for (int i = 0; i <= 1000000 ; i++) {
+    var++;
+  }
+}
+
+void subtractor(int var) {
+  for (int i = 0; i <= 1000000; i++) {
+    var--;
+  }
+}
+
+3./ I think that calling adder should result in race being set to 2 million. Then calling subtractor should result in race being set to 0. As expected, when I call adder(), the global variable is set to 2 million. Similarly, after I call subtractor(), the global variable is set to 0.
+
+4./ We learned in lecture that when two threads have access to the same variable, unintended behavior may occur. For example, in our program, when we execute var++, var may be loaded into the register from thread one inside adder(), but then it is interrupted by thread 2. Thread 2 executes, loads the initialized value of 0 and decrements it. Then again, thread 1 increments its register and stores it back into memory. This results in getting var = 1.
+
+5./
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_10$ ./race
+Value of race is: 210009
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_10$ ./race
+Value of race is: 1141037
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_10$ ./race
+Value of race is: 1232294
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_10$ ./race
+Value of race is: -82739
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_10$ ./race
+Value of race is: 426168
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_10$ ./race
+Value of race is: 342045
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_10$ ./race
+Value of race is: 1389399
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_10$ ./race
+Value of race is: 526236
+
+
+6./ This behavior has to do with how threads are accessing/executing assembly code. The race condition occurs when the threads are executing the assembly code that is equivalent to var++ and var--.
+
+7./ The program exhibits this behavior no matter what the amount of iterations.
+
+8./ The race condition can absolutely still hold if my machine had only one processor. This is because we can have multi-threading within one process. Threads can share the same address space as the process and other threads within the process.
+
+9./ Unlike what I was expecting, the output is always 0. This means that there is no race condition. From what I understand, this means that multi-threading uses more than one core.
+
+10./ We don't get 0, we instead get random numbers in the range of -200 million to +200 million. So I was correct in thinking that we would still exhibit race conditions, even if we're only on one processor!
+
+11./ I believe that it must have to do with the os scheduler. It may be trivially easy to handle 2 - 4 million operations, but when we raise the amount of operations we're doing, threads may start to be executed in a different manner. 

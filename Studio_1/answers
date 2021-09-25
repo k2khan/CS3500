@@ -1,0 +1,11 @@
+1./ Hamad Khan.
+2./ #include <stdio.h> is required for fprintf().
+3./ fprintf() takes in an argument for "FILE *stream" in addition to "const char *format", wheras printf() doesn't take in "FILE *stream".
+4./ printf() writes to standard output, and fprintf() writes to the given output stream.
+5./ Hello World!
+6./ Section 2
+7./ #include <unistd.h> is required for write().
+8./ 
+9./ Hello, World!
+10./ After making my character buffer 100, the standart output spit out some random characters after the newline character. This was most likely because the buffer reserves memory space, and so if the buffer size is massive, it is printing nearby memory.
+11./ You might want to use system calls when something requires elevated privelage, since the system calls are executed in the kernal space. I assume library calls should be used in every other situation.

@@ -1,0 +1,37 @@
+1./ Hamad Khan
+
+2./ I do not have an entry for "br0", but I do see that hopper has one. Copying hopper
+s entry.
+
+3./ The current ip address is 172.27.147.82 and fe80::215:5dff:fea1:2a70.
+
+4./ My MAC address is: 00:15:5d:a1:2a:70.
+
+5./ The name of my machine is "k".
+
+6./
+khan@k:~/classes/operating-systems/hamadkhan$ host google.com
+google.com has address 142.250.190.46
+google.com has IPv6 address 2607:f8b0:4009:809::200e
+google.com mail is handled by 10 aspmx.l.google.com.
+google.com mail is handled by 50 alt4.aspmx.l.google.com.
+google.com mail is handled by 20 alt1.aspmx.l.google.com.
+google.com mail is handled by 30 alt2.aspmx.l.google.com.
+google.com mail is handled by 40 alt3.aspmx.l.google.com.
+
+7./ For me, the command only returned one address. However, I assume it returns multiple addresses because there are likely multiple hosts. For example, the med school and law school may have different hosts.
+
+8./
+Physical Layer: DSL is essentially a family of technologies that transmit digital data over telephone lines. This is in the physical layer because we are using physical wires to transmit the data.
+
+Data Link Layer: ARP is a communication protocol for discovering the link layer address, such as the MAC address. So it seems like this is used for some kind of authentication.  It's located in the Data Link layer because of addresses such as MAC and IPv4 address reside here.
+
+Network Layer: IP is a commounications protocol that relays datagrams across network boundaries. I assume it resides in the network layer because it is responsible for taking data from the Physical Layer and the address from the Data Link Layer and merging them into one.
+
+Transport Layer: TCP is a protocol within the IP suite. It's responsible for providing reliable, ordered, and error-checked delivery of a stream of bytes between applications running on hosts communicating via an IP network.
+
+Session Layer: SOCKS is an internet protocol that exchanges network packets between a client and server through a proxy server. I assume this is one of the ways you can send information through a network.
+
+Presentation Layer: TLS is a crpytographic protocol designed to provide communications security over a computer network. It's role is to essentiall make sure that communication within client-server applications is secure.
+
+Application Layer: HTTPS is used for secure communication over a computer network. It resides within the application layer because it is used whenever an application is trying to securely connect over the internet.

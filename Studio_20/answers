@@ -1,0 +1,49 @@
+1./ Hamad Khan
+
+2./
+File F - 3 Blocks
+2 Blocks Free
+File E - 4 Blocks
+1 Block Free
+File D - 5 blocks
+5 Blocks Free
+
+3./ There are 3 chunks of size 2 or less.
+
+4./ 15 % of the total disk space are fragmentary chunks
+
+5./
+File B - 2 Blocks
+File D - 5 Blocks
+File E - 4 Blocks
+9 Blocks Free
+
+6./ There is are no chunks of size 2 or less.
+
+7./ It doesn't make sense to measure disk fragmentation regarding a linked list allocation implementation. It makes more sense to measure the amount of time it takes to access a particular block of memory. So it would make more sense to measure the amount of time and the number of hardware seeks it takes to access a particular memory block.
+
+8./ You would need four blocks, so 4096 total bytes. This would require 3 blocks to be read.
+
+9./ 
+   FAT
+--|---
+0 | 
+1 |
+2 |
+3 |
+4 |
+
+10./
+Entries for 1 KB = ((2^30) / (2^10)) * 2.5 bytes = 2621440 bytes
+Entries for 4 KB = ((2^30) / (2^12)) * 2.25 bytes = 589824 bytes 
+Entries for 8 KB = ((2^30) / (2^13)) * 2.125 bytes = 278528 bytes
+
+11./ 
+Entries for 1 KB = ((2^30) / (2^10)) * 3 bytes = 3145728 bytes
+Entries for 1 KB = ((2^30) / (2^12)) * 3 bytes = 786432 bytes
+Entries for 1 KB = ((2^30) / (2^13)) * 3 bytes = 393216
+
+12./ 
+1024 byte block size: 3 seeks + 3 reads = 39 microseconds
+2048 byte block size: 2 seeks + 2 reads = 26 microseconds
+4096 byte block size: 1 seek + 1 read = 13 microseconds

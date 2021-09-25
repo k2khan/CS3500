@@ -1,0 +1,49 @@
+1./ Hamad Khan
+
+2./
+
+3./ In the first call, the str passed into strtok() must be specified. In each subsequent call that parses the same string, the str must be NULL.
+
+4./ Space should be used as a delimeter for normal input.
+
+5./ The first token is: Hello
+
+
+6./
+The first token is: Hello
+The current token is: this
+The current token is: is
+The current token is: a
+The current token is: string
+
+7./ Name[strcspn(Name, "\n")] = 0;
+creds: https://stackoverflow.com/questions/2693776/removing-trailing-newline-character-from-fgets-input
+
+8./
+
+9./ cmd = strtok(input_string, " ");
+
+10./
+cmd = strtok(input_string, " ");
+my_argv[0] = cmd;
+
+//Save rest of the commands
+while (1) {
+  res = strtok(NULL, " ");
+  if (res == NULL) {
+    my_argv[counter] = '\0';
+    break;
+  }
+  my_argv[counter] = res;
+  counter++;
+}
+
+
+11/
+khan@DESKTOP-K1UU0BU:~/classes/os/hamadkhan/Studio_6$ ./input
+Please enter some input: ls -l
+total 28
+-rw-r--r-- 1 khan khan   394 Feb 12 18:21 answers
+-rwxr-xr-x 1 khan khan 16968 Feb 12 20:12 input
+-rw-r--r-- 1 khan khan  1311 Feb 12 20:12 input.c
+

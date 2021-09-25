@@ -1,0 +1,44 @@
+1./ Hamad Khan
+
+2./ The function automically fetches and adds to a variable. The interface is __sync_add_and_fetch(type *ptr, type value, ...). This function returns the value of the variable after changing it.
+
+3./ 
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_12$ ./atomic
+The value of the variable : 0
+The value of the variable is now: 1
+
+4./
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_12$ ./race
+Value of race is: 0
+
+5./
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_12$ time ./race
+Value of race is: 0
+
+real    0m0.658s
+user    0m1.288s
+sys     0m0.000s
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_12$ time ./race
+Value of race is: 0
+
+real    0m0.705s
+user    0m1.380s
+sys     0m0.010s
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_12$ time ./race
+Value of race is: 0
+
+real    0m0.607s
+user    0m1.187s
+sys     0m0.000s
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_12$
+
+Average time is 0.656 seconds.
+
+6./ For my timing experiments, I actually got that atomic instructions are slower than mutex for this task. The average time to execute a mutex instruction was 0.193 seconds, the average time for atomic instructions was 0.656 seconds.
+
+7./ Mutex locking strategy is faster. It is faster about ~3x faster.
+
+8./ The average time of execution for the racy program was 0.098 seconds. This means that the racy program is 6x faster than the mutex program.
+
+9./ Atomic instructions are preferred when there actually exists contention within our program. Contention meaning that two threads are fighting over access to a variable. Since we have seperate threads accessing seperate functions, this does not occur, which makes the mutex faster in our current case.
+

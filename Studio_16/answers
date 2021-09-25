@@ -1,0 +1,31 @@
+1./ Hamad Khan, Julia Pratt, Mathew Horning
+
+2./ 1 gb / 4kb = 262144 page frames available.
+
+3./ (2^32) / (2^12) = 1048576 pages are free to be used by each process.
+
+4./ A system does not crash, rather there is a page fault.
+
+5./ The theoretical maximum would be 1048576 on that system.
+
+6./ We would have around 6 bytes per row. So we would get 1 million rows @ 6 bytes per row = 6 mb.
+
+7./ 20 bits are required to specify the page number.
+
+8./ The first 20 bits would be the page number, the last 12 bits would be the offset bits.
+
+9./ The number of bits in the physical address will contain 30 bits.
+
+10./ Page frames = 1 gb = 2^30 / 2^12 = 18 bits.
+
+11./ First 18 bits corresponds to the page frame, the last 12 bits corresponds to the offset.
+
+12./ Page 0000 contains read-only.
+
+13./ Page 0010 and page 0101
+
+14./ 
+
+15./ 101110001111000
+
+16./ 01011110000111

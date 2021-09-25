@@ -1,0 +1,69 @@
+1./ Hamad Khan
+
+2./
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_13$ ./openMP 7
+The number 7 is prime.
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_13$ ./openMP 23
+The number 23 is prime.
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_13$ ./openMP 101
+The number 101 is prime.
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_13$ ./openMP 982451653
+The number 982451653 is prime.
+
+3./
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_13$ time ./openMP 982451653
+The number 982451653 is prime.
+
+real    0m0.001s
+user    0m0.001s
+sys     0m0.000s
+
+4./
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_13$ ./openMP 100
+Prime: 2
+Prime: 3
+Prime: 5
+Prime: 7
+Prime: 11
+Prime: 13
+Prime: 17
+Prime: 19
+Prime: 23
+Prime: 29
+Prime: 31
+Prime: 37
+Prime: 41
+Prime: 43
+Prime: 47
+Prime: 53
+Prime: 59
+Prime: 61
+Prime: 67
+Prime: 71
+Prime: 73
+Prime: 79
+Prime: 83
+Prime: 89
+Prime: 97
+
+5./ Testing each number is independent because we have to loop from i=2 to i<=sqrt(n), where n is the number we want to test for primality.
+
+6./ 7 and 9 are not independent of testing the number 5 because 5 is a factor of 105. Our program would thus stop at number 5, and not continue for 7 and 9.
+
+7./ Yes, the output of my parallelized program matches the output of my base program. Although, I will note that the output of the for loop is in a different order. I assume this is because different threads were alloted different times to run during the for loop.
+
+8./ Time used for non parallelized program:
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_13$ time ./openMP 1000000
+
+real    0m42.889s
+user    0m42.889s
+sys     0m0.000s
+
+Time used for parallelzied program:
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_13$ time ./parrellized 1000000
+
+real    0m14.305s
+user    0m48.793s
+sys     0m0.000s
+
+9./ It is obviously a lot easier to parallelize by using openMP. If we were to use pthreads, we would have to define how many threads we want to use, where those threads should work specifically, and use the correct amount of threads based on our machine. OpenMP does this all for us.

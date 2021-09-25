@@ -1,0 +1,42 @@
+1./ 
+Program 1:
+#include<stdio.h>
+
+int main(int argc, char* argv) {
+  fprintf(stdout, "Hello World! \n");
+
+  return 0;
+}
+
+Program 2:
+#include<stdio.h>
+
+int main(int argc, char* argv[]) {
+  char inputString[1024];
+  char* res;
+  
+  while (1) {
+  res = fgets(inputString, sizeof inputString, stdin);
+  if (res == NULL) {
+    break;
+    }
+  printf("The program got: %s \n", res);
+  }
+
+  return 0;
+}
+
+2./ Hello World! (I get the output of my program 1)
+
+3./ fd[0] contains the read end, fd[1] contains the write end.
+
+4./ The newfd argument is closed.
+
+5./ dup2(fd[1], STDOUT_FILENO);
+dup2(fd[0], STDIN_FILENO);
+
+6./ The program got: Hello World!
+
+7./ The program got: Hello World! (But now the program closes)
+
+8./ Stream ambiguity extremely powerful. This is because it allows you to easily pass data between programs. Normally, this is not an easy thing to do, however, piping makes it so that i/o redirection can be done through multiple programs in a single line. Another advantage is that the programs can be independent of each other. This means that the os could be redirecting a network socket into another program. This simplicity and versatility makes piping so powerful.

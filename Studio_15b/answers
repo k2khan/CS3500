@@ -1,0 +1,21 @@
+1./ Hamad Khan
+
+2./ # Page frames = (2^30) / (4 * 2^10) = 2^20 = 262144 page frames
+
+3./ A modern x86_64 process can address 2^48 bytes of memory.
+(2^48) / (4 * 2^10) = 68719476736 pages
+
+4./ This address resides in page 2.
+The offset is 10500 - 8192 = 2308
+
+5./ Page frame start: (4096 * 67) = 274432
+Our previously calculated page offset: 2308
+So the physical address would be 274432 + 2308 = 276740
+
+6./ 15 gb = 15000000000 bytes. 15 gb / 4kb = 58593750 pages necessary.  So we would not expect any page faults over the life of the entire movie.
+
+7./ (2^48) / (2^15) = 8589934592. You would still not expect any page faults.
+
+8./ Larger page sizes lead to large amounts of wasted memory since more potentially unsused portions of memory are loaded into main memory. Smaller page sizes ensure that we're using only the necessary amount of memory.
+
+9./ It will probably require one page, 4kb.

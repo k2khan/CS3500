@@ -1,0 +1,50 @@
+1./ Hamad Khan
+
+2./ Order is now different because we are using OpenMP:
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_14$ ./parrellized 100
+Prime: 2 on thread 0
+Prime: 3 on thread 0
+Prime: 5 on thread 0
+Prime: 7 on thread 0
+Prime: 11 on thread 0
+Prime: 13 on thread 0
+Prime: 17 on thread 0
+Prime: 19 on thread 1
+Prime: 23 on thread 1
+Prime: 29 on thread 1
+Prime: 31 on thread 1
+Prime: 71 on thread 4
+Prime: 73 on thread 4
+Prime: 79 on thread 4
+Prime: 83 on thread 4
+Prime: 89 on thread 5
+Prime: 97 on thread 5
+Prime: 37 on thread 2
+Prime: 41 on thread 2
+Prime: 43 on thread 2
+Prime: 47 on thread 2
+Prime: 53 on thread 3
+Prime: 59 on thread 3
+Prime: 61 on thread 3
+Prime: 67 on thread 3
+
+3./ 
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_14$ ./parrellized 100
+The maximum number of threads made will be: 6
+
+4./ I'm currently using my local machine, which is why the number of threads was previously 6.
+khan@DESKTOP-K1UU0BU:~/classes/operating-systems/hamadkhan/Studio_14$ ./parrellized 100
+The maximum number of threads made will be: 5
+
+5./ It looks like each thread handles 5 iterations.
+
+6./ It might be a bad idea for OpenMP to assign the same number of loop iterations to each thread if the computation we are doing within the loop varies every time it is executed. If a computation during one iteration of the  loop is more resource intensive, we should allocate more threads toward that computation.
+
+7./ Based on the earlier questions I answered, it seems that OpenMP allocates one thread at a time. This would mean that The program will first wait until sleep() is executed, then run.
+I was wrong! It seems that OpenMP knows that Sleep() is a function that will take a while to execute, and so allocates threads in a manner such that the first four iterations of the loop are executed last. Neat!
+
+8./ The program takes about 1 seconds in real time, as measured by linux's time command. This is probably because after changing the schedule type to dynamic, we have 5 threads doing 5 seconds of work concurrently. This would mean 5/5 = 1 seconod of execution time?
+
+9./ I answered what changed about how the program is scheduled above, but to reiterate- it seems that the threads that are allocated for the first 5 iterations of the loop are concurrently executed. This makes sense because our execution time was 1 second: (5 sleep(1) / 5 threads) = 1 second.
+
+10./ It seems that OpenMP divides the iterations into chunks of size chunk-size, and thene distribuites those chunks to the threads. *http://jakascorner.com/blog/2016/06/omp-for-scheduling.html

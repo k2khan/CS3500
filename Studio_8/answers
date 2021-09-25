@@ -1,0 +1,42 @@
+1./ Hamad Khan
+
+2./ 
+n@DESKTOP-K1UU0BU:~/classes/os/hamadkhan/Studio_8$ ./sleep
+Sleeper's PID is: 2358
+Slept for 0 iterations!
+Slept for 1 iterations!
+Slept for 2 iterations!
+Slept for 3 iterations!
+Slept for 4 iterations!
+Slept for 5 iterations!
+Slept for 6 iterations!
+Slept for 7 iterations!
+Slept for 8 iterations!
+Slept for 9 iterations!
+^C
+
+3./ SIGINT has a numeric value of 2, and the associated comment is "Interrup from keyboard".
+
+4./ The sleeper process stops after executing the kill command.
+
+5./ I used "kill -s 8 2454", which killed my process with signal "SIGFPE". The result was that the sleeper process was killed, and I was given a floating point exception as the reason.
+
+6./ It seems that both of the processes were terminated. The calling program did NOT print its success message.
+
+7./
+void handleSignal(int signum) {
+  printf("Ignoring SIGINT \n");
+}
+
+
+8./
+khan@DESKTOP-K1UU0BU:~/classes/os/hamadkhan/Studio_8$ ./call_sleeper
+Forking sleeper...
+Waiting for sleeper 2620...
+Sleeper's PID is: 2620
+Slept for 0 iterations!
+Slept for 1 iterations!
+^CIgnoring SIGINT
+Parent finished waiting and returned successfully!
+
+9./ Signal handling may be useful to detect errors that arise unexpectedly. When I was going through the SIGINT manpages, I saw a signal handler for floating-point exceptions. This error can't always be predicted, which is why it is a built in signal. All of the "Standard Signals" are most likely very important.

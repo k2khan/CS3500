@@ -1,0 +1,46 @@
+1./ Hamad Khan
+
+2./ -rw-r--r--
+
+3./ The file is currently 0 bytes.
+
+4./ xxd output:
+00000000: 3131 3131 3131 3131 3131 3232 3232 3232  1111111111222222
+00000010: 3232 3232 3333 3333 3333 3333 3333 3434  2222333333333344
+00000020: 3434 3434 3434 3434 3535 3535 3535 3535  4444444455555555
+00000030: 3535                                     55
+
+5./ ?
+
+6./ All of my characters are printed on the screen..?
+
+7./ The first four bytes are ".ELF". These correspond to the following hex: "7f45 4c46 0201 0100"
+
+8./ The following is probably loading the C compiler.
+00000230: 0100 0000 0000 0000 2f6c 6962 3634 2f6c  ......../lib64/l
+00000240: 642d 6c69 6e75 782d 7838 362d 3634 2e73  d-linux-x86-64.s
+00000250: 6f2e 3200 0400 0000 1000 0000 0100 0000  o.2.............
+00000260: 474e 5500 0000 0000 0300 0000 0200 0000  GNU.............
+
+The following also probably has something to do with the version of my os, and the compiler for C.
+00001010: 4743 433a 2028 5562 756e 7475 2037 2e34  GCC: (Ubuntu 7.4
+00001020: 2e30 2d31 7562 756e 7475 317e 3138 2e30  .0-1ubuntu1~18.0
+00001030: 342e 3129 2037 2e34 2e30 0000 0000 0000  4.1) 7.4.0......
+
+The following might be initializing/using our memory, and the global offset table is a section of a program's memory used to enable computer code compiled as an ELF to run correctly.
+00001740: 4653 4554 5f54 4142 4c45 5f00 5f5f 6c69  FSET_TABLE_.__li
+00001750: 6263 5f63 7375 5f66 696e 6900 5f49 544d  bc_csu_fini._ITM
+00001760: 5f64 6572 6567 6973 7465 7254 4d43 6c6f  _deregisterTMClo
+
+9./ 
+(1): "Data:                              2's complement, little endian"
+From what I remember from computer architecture, little endian is basically how adresses are stored in memory. Little endian means that the least significant value in the sequence is stored first, and big endian means that the most significant value in the sequence is stored first.
+(2): "  OS/ABI:                            UNIX - System V"
+This line just represents what OS the current program is being run on-- I suppose when the executable is compiled, the architecture of the processor and the version of the OS are probably checked since this could effect how the program should be compiled.
+
+10./ .text starts at offset 00000580
+[14] .text             PROGBITS         0000000000000580  00000580
+    00000000000001b2  0000000000000000  AX       0     0     16
+
+11./ Our main starts at 000000000000068a.
+58: 000000000000068a    54 FUNC    GLOBAL DEFAULT   14 main

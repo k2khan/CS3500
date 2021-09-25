@@ -1,0 +1,24 @@
+1./ Hamad Khan
+
+---------------------------------------------------------------------------
+For the questions below, I assume the first 3 access are also page faults.
+---------------------------------------------------------------------------
+2./ ?
+
+3./ 9 Page faults
+
+4./ 11 Page faults
+
+5./ 11 Page faults
+
+6./ You could increase the size of the TLB, or your could use an algorithm that is best suited to your program. (Temporal locality of reference vs spatial locality of reference)
+
+7./ This is advantageous because it is using locality of reference. The pages are closer together (in general), so now we don't have to evict as many pages, especially if the same pages are next to each other rather than being at the ends.
+
+8./ There would be 9 total page faults.
+
+9./ There are still 9 total page faults with a frame size of 4.
+
+10./ I think that it is "unexpected". What happened is that because of the way that the pages are being accessed, it didn't matter whether we had 3 or 4 frames. 
+
+11./ I suppose you could theoretically test whether or not adding more money, making the process faster, or reducing system utilization will make the algorithm better. 
